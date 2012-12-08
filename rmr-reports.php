@@ -5,7 +5,7 @@
  */
 /*
 Plugin Name: RMR Reports
-Plugin URI: https://github.com/rmr-reports/
+Plugin URI: https://github.com/DerekMarcinyshyn/rmr-reports
 Description: Revelstoke Mountain Resort Reports is a WordPress plugins displaying weather, snow, grooming and lift status updates.
 Author: Derek Marcinyshyn
 Author URI: http://derek.marcinyshyn.com
