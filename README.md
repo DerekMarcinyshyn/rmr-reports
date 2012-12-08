@@ -5,8 +5,8 @@
 * Derek Marcinyshyn [derek.marcinyshyn.com](http://derek.marcinyshyn.com)
 * Ian Houghton [IHoughton@revelstokemountainresort.com](mailto:IHoughton@revelstokemountainresort.com)
 
-* **Version**: 1.1
-* ~Current Version:1.1~
+* **Version**: 1.0
+* ~Current Version:1.0~
 * **Requires at least**: 3.0
 * **Tested up to**: 3.5
 * **License**: GPLv2
