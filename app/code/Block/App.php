@@ -63,7 +63,16 @@ if ( ! class_exists( 'App' ) ) :
          */
         private function __construct() {
 
+            // register the ripper snow widget
             add_action( 'widgets_init', function(){ return register_widget( 'rmr_reports\Widget_Ripper_Snow' ); } );
+
+            // add css
+            add_action( 'init', array( $this, 'rmr_reports_css' ) );
+        }
+
+        function rmr_reports_css() {
+            wp_register_style( 'rmr-ripper-snow-css', RMR_REPORTS_URL . '/assets/css/rmr-reports.css', true, RMR_REPORTS_VERSION );
+            wp_enqueue_style( 'rmr-ripper-snow-css' );
         }
     }
 

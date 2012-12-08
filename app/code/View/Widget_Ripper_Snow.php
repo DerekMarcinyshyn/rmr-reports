@@ -60,7 +60,7 @@ if ( ! class_exists( 'Widget_Ripper_Snow' ) ) :
                 $title = $instance[ 'title' ];
             }
             else {
-                $title = __( 'RMR Ripper Snow', 'rmr_reports' );
+                $title = __( 'RMR Ripper Snow Report', 'rmr_reports' );
             }
             ?>
             <p>
@@ -105,9 +105,40 @@ if ( ! class_exists( 'Widget_Ripper_Snow' ) ) :
             if ( ! empty( $title ) )
                 echo $before_title . $title . $after_title;
 
-            echo __( 'Hello World', 'rmr_reports' );
+            echo __( $this->get_rmr_ripper_data(), 'rmr_reports' );
 
             echo $after_widget;
+        }
+
+        /**
+         * Get the xml data feed and parse the data and return an html object
+         *
+         * @return string
+         */
+        private function get_rmr_ripper_data() {
+            $ripper = 'http://www.revelstokemountainresort.com/conditions/xml';
+            $output = '';
+
+            // get the file headers to check if file exists
+            $get_headers = @get_headers( $ripper );
+
+            if ( preg_match( "|200|", $get_headers[0] ) ) {
+                // load the data
+                $ripper_data = simplexml_load_file( $ripper );
+
+                $output .= '<p class="date-time">' . date( 'l, F j, Y g:ia', strtotime( $ripper_data->timestamp->value ) ) . '</p>';
+                $output .= '<p class="current-temp">Current temp: <strong>' . $ripper_data->temperature->value . '</strong></p>';
+                $output .= '<p class="humidity">Humidity: <strong>' . $ripper_data->{'relative-humidity'}->value . '</strong></p>';
+                $output .= '<p class="new-snow">New snow (reset at 4pm): <strong>' . $ripper_data->{'new-snow'}->value . '</strong></p>';
+                $output .= '<p class="hourly-snow">Hourly snow: <strong>' . $ripper_data->{'hourly-snow'}->value . '</strong></p>';
+                $output .= '<p class="twenty-four-snow">24 hour: <strong>' . $ripper_data->{'twenty-four-hour-snow'}->value . '</strong></p>';
+                $output .= '<p class="base-depth">Base depth: <strong>' . $ripper_data->{'base-depth'}->value . '</strong></p>';
+
+            } else {
+                $output .= '<p>Sorry data feed unavailable</p>';
+            }
+
+            return $output;
         }
 
     }
