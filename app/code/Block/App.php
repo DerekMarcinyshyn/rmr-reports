@@ -68,11 +68,46 @@ if ( ! class_exists( 'App' ) ) :
 
             // add css
             add_action( 'init', array( $this, 'rmr_reports_css' ) );
+
+            // check for update
+            add_action( 'admin_init', array( $this, 'rmr_reports_updater' ) );
         }
 
+        /**
+         * rmr_reports_css function
+         *
+         * Add CSS rules
+         */
         function rmr_reports_css() {
             wp_register_style( 'rmr-ripper-snow-css', RMR_REPORTS_URL . '/assets/css/rmr-reports.css', true, RMR_REPORTS_VERSION );
             wp_enqueue_style( 'rmr-ripper-snow-css' );
+        }
+
+        /**
+         * rmr_reports_updater class
+         *
+         * Check GitHub to see if there is an update available
+         */
+        function rmr_reports_updater() {
+            define( 'RMR_REPORTS_FORCE_UPDATE', true );
+
+            if ( is_admin() ) {
+                $config = array(
+                    'slug'                  => RMR_REPORTS_DIRECTORY . '/rmr-reports.php',
+                    'proper_folder_name'    => 'rmr-reports',
+                    'api_url'               => 'https://api.github.com/repos/DerekMarcinyshyn/rmr-reports',
+                    'raw_url'               => 'https://raw.github.com/DerekMarcinyshyn/rmr-reports/master',
+                    'github_url'            => 'https://github.com/DerekMarcinyshyn/rmr-reports',
+                    'zip_url'               => 'https://github.com/DerekMarcinyshyn/rmr-reports/zipball/master',
+                    'sslverify'             => false,
+                    'requires'              => '3.0',
+                    'tested'                => '3.5',
+                    'readme'                => 'README.md',
+                    'access_token'          => '',
+                );
+
+                new \RMR_Reports_Updater( $config );
+            }
         }
     }
 

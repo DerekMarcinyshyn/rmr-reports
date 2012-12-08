@@ -60,7 +60,7 @@ require_once( RMR_REPORTS_APP_PATH . '/code/Block/App.php' );
 require_once( RMR_REPORTS_APP_PATH . '/code/View/Widget_Ripper_Snow.php' );
 
 // Require updater class
-//include_once( RMR_REPORTS_LIB_PATH . '/vendor/updater/updater.php' );
+include_once( RMR_REPORTS_LIB_PATH . '/vendor/updater/updater.php' );
 
 // ====================================
 // = Initialize and setup application =
