@@ -2,6 +2,7 @@
 /**
  * @package RMR Reports
  * @since   December 7, 2012
+ * @license http://www.gnu.org/licenses/gpl-2.0.html
  */
 /*
 Plugin Name: RMR Reports
@@ -26,3 +27,52 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
+
+// Exit if called directly
+defined( 'ABSPATH' ) or die( "Cannot access pages directly." );
+
+// Plugin version
+define( 'RMR_REPORTS_VERSION', '1.0');
+
+// Plugin
+define( 'RMR_REPORTS_PLUGIN', __FILE__ );
+
+// Plugin directory
+define( 'RMR_REPORTS_DIRECTORY', dirname( plugin_basename(__FILE__) ) );
+
+// Plugin path
+define( 'RMR_REPORTS_PATH', WP_PLUGIN_DIR . '/' . RMR_REPORTS_DIRECTORY );
+
+// App path
+define( 'RMR_REPORTS_APP_PATH', RMR_REPORTS_PATH . '/app' );
+
+// Lib path
+define( 'RMR_REPORTS_LIB_PATH', RMR_REPORTS_PATH . '/lib' );
+
+// URL
+define( 'RMR_REPORTS_URL', WP_PLUGIN_URL . '/' . RMR_REPORTS_DIRECTORY );
+
+
+// Require main class
+require_once( RMR_REPORTS_APP_PATH . '/code/Block/App.php' );
+
+// Require widgets class
+require_once( RMR_REPORTS_APP_PATH . '/code/View/Widgets.php' );
+
+// Require updater class
+//include_once( RMR_REPORTS_LIB_PATH . '/vendor/updater/updater.php' );
+
+// ====================================
+// = Initialize and setup application =
+// ====================================
+
+global  $rmr_reports_app,
+        $rmr_reports_widgets;
+
+// widgets class
+use rmr_reports\Widgets;
+$rmr_reports_widgets = \rmr_reports\Widgets::get_instance();
+
+// Main class app initialization in App::__construct()
+
+//$rmr_reports_app = Monashee_Webcam_App::get_instance();
