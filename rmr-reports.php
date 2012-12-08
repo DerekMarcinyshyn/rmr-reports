@@ -74,5 +74,5 @@ use rmr_reports\Widgets;
 $rmr_reports_widgets = \rmr_reports\Widgets::get_instance();
 
 // Main class app initialization in App::__construct()
-
-//$rmr_reports_app = Monashee_Webcam_App::get_instance();
+use rmr_reports\App;
+$rmr_reports_app = \rmr_reports\App::get_instance();

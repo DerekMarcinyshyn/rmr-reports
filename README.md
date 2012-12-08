@@ -3,7 +3,7 @@
 **Contributors**:
 
 * Derek Marcinyshyn [derek.marcinyshyn.com](http://derek.marcinyshyn.com)
-* Ian Houghton [IHoughton@revelstokemountainresort.com](IHoughton@revelstokemountainresort.com)
+* Ian Houghton [IHoughton@revelstokemountainresort.com](mailto:IHoughton@revelstokemountainresort.com)
 
 * **Version**: 1.0
 * **Requires at least**: 3.0

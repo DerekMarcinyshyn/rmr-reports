@@ -35,7 +35,7 @@ namespace rmr_reports;
  * @link       https://github.com/DerekMarcinyshyn/rmr-reports
  */
 
-if ( ! class_exist( 'App' ) ) :
+if ( ! class_exists( 'App' ) ) :
 
     class App {
 
