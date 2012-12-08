@@ -16,5 +16,5 @@ Revelstoke Mountain Resort Reports is a WordPress plugins displaying weather, sn
 
 # Features
 
-Widgets and page views via shortcodes
+* Ripper Chair Weather and Snow Data
 
