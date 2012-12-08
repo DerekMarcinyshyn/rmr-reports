@@ -57,7 +57,7 @@ define( 'RMR_REPORTS_URL', WP_PLUGIN_URL . '/' . RMR_REPORTS_DIRECTORY );
 require_once( RMR_REPORTS_APP_PATH . '/code/Block/App.php' );
 
 // Require widgets class
-require_once( RMR_REPORTS_APP_PATH . '/code/View/Widgets.php' );
+require_once( RMR_REPORTS_APP_PATH . '/code/View/Widget_Ripper_Snow.php' );
 
 // Require updater class
 //include_once( RMR_REPORTS_LIB_PATH . '/vendor/updater/updater.php' );
@@ -66,12 +66,11 @@ require_once( RMR_REPORTS_APP_PATH . '/code/View/Widgets.php' );
 // = Initialize and setup application =
 // ====================================
 
-global  $rmr_reports_app,
-        $rmr_reports_widgets;
+global  $rmr_reports_app;
 
 // widgets class
-use rmr_reports\Widgets;
-$rmr_reports_widgets = \rmr_reports\Widgets::get_instance();
+//use rmr_reports\Widgets;
+//$rmr_reports_widgets = \rmr_reports\Widgets::get_instance();
 
 // Main class app initialization in App::__construct()
 use rmr_reports\App;

@@ -35,33 +35,26 @@ namespace rmr_reports;
  * @link       https://github.com/DerekMarcinyshyn/rmr-reports
  */
 
-if ( ! class_exists( 'Widgets' ) ) :
+if ( ! class_exists( 'Widget_Ripper_Snow' ) ) :
 
-    class Widgets {
+    class Widget_Ripper_Snow extends \WP_Widget {
 
-        /**
-         * _instance class variable
-         *
-         * Class instance
-         *
-         * @var null | object
-         */
-        private static $_instance = NULL;
-
-        static function get_instance() {
-            if( self::$_instance === NULL ) {
-                self::$_instance = new self();
-            }
-
-            return self::$_instance;
+        public function __construct() {
+            parent::__construct( 'ripper_snow', 'Ripper Snow Report' );
         }
 
-        /**
-         * Constructor
-         */
-        private function __construct() {
+        public function form( $instance ) {
 
         }
+
+        public function update( $new_instance, $old_instance ) {
+
+        }
+
+        public function widget( $args, $instance ) {
+
+        }
+
     }
 
 endif; // end if class_exists

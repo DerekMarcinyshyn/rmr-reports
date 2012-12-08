@@ -63,6 +63,7 @@ if ( ! class_exists( 'App' ) ) :
          */
         private function __construct() {
 
+            add_action( 'widgets_init', function(){ return register_widget( 'rmr_reports\Widget_Ripper_Snow' ); } );
         }
     }
 
