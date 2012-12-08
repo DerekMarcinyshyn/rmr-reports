@@ -39,20 +39,75 @@ if ( ! class_exists( 'Widget_Ripper_Snow' ) ) :
 
     class Widget_Ripper_Snow extends \WP_Widget {
 
+        /**
+         * Register the widget with WordPress.
+         */
         public function __construct() {
-            parent::__construct( 'ripper_snow', 'Ripper Snow Report' );
+            parent::__construct(
+                'ripper_snow',
+                'Ripper Snow Report',
+                array( 'description' => __( 'Revelstoke Mountain Resort Ripper Chair Snow Report', 'rmr_reports') ) );
         }
 
+        /**
+         * Back-end widget form
+         *
+         * @param array $instance
+         * @return string|void
+         */
         public function form( $instance ) {
-
+            if ( isset( $instance[ 'title' ] ) ) {
+                $title = $instance[ 'title' ];
+            }
+            else {
+                $title = __( 'RMR Ripper Snow', 'rmr_reports' );
+            }
+            ?>
+            <p>
+                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+                <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+            </p>
+            <?php
         }
 
+        /**
+         * Sanitize widget form values as they are saved.
+         *
+         * @see WP_Widget::update()
+         *
+         * @param array $new_instance
+         * @param array $old_instance
+         *
+         * @return array|void
+         */
         public function update( $new_instance, $old_instance ) {
+            $instance = array();
+            $instance['title'] = strip_tags( $new_instance['title'] );
 
+            return $instance;
         }
 
+        /**
+         * Front-end display of the widget.
+         *
+         * @see WP_Widget::widget()
+         *
+         * @param array $args
+         * @param array $instance
+         */
         public function widget( $args, $instance ) {
+            extract( $args);
 
+            $title = apply_filters( 'widget_title', $instance['title'] );
+
+            echo $before_widget;
+
+            if ( ! empty( $title ) )
+                echo $before_title . $title . $after_title;
+
+            echo __( 'Hello World', 'rmr_reports' );
+
+            echo $after_widget;
         }
 
     }
