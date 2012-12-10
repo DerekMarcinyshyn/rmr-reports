@@ -128,11 +128,11 @@ if ( ! class_exists( 'Widget_Ripper_Snow' ) ) :
 
                 $output .= '<p class="date-time">' . date( 'l, F j, Y g:ia', strtotime( $ripper_data->timestamp->value ) ) . '</p>';
                 $output .= '<p class="current-temp">Current temp: <strong>' . $ripper_data->temperature->value . '</strong></p>';
-                $output .= '<p class="humidity">Humidity: <strong>' . $ripper_data->{'relative-humidity'}->value . '</strong></p>';
-                $output .= '<p class="new-snow">New snow (reset at 4pm): <strong>' . $ripper_data->{'new-snow'}->value . '</strong></p>';
-                $output .= '<p class="hourly-snow">Hourly snow: <strong>' . $ripper_data->{'hourly-snow'}->value . '</strong></p>';
-                $output .= '<p class="twenty-four-snow">24 hour: <strong>' . $ripper_data->{'twenty-four-hour-snow'}->value . '</strong></p>';
-                $output .= '<p class="base-depth">Base depth: <strong>' . $ripper_data->{'base-depth'}->value . '</strong></p>';
+                $output .= '<p class="humidity">Humidity: <strong>' . $ripper_data->relative_humidity->value . '</strong></p>';
+                $output .= '<p class="new-snow">New snow (reset at 4pm): <strong>' . $ripper_data->new_snow->value . '</strong></p>';
+                $output .= '<p class="hourly-snow">Hourly snow: <strong>' . $ripper_data->hourly_snow->value . '</strong></p>';
+                $output .= '<p class="twenty-four-snow">24 hour: <strong>' . $ripper_data->twenty_four_hour_snow->value . '</strong></p>';
+                $output .= '<p class="base-depth">Base depth: <strong>' . $ripper_data->base_depth->value . '</strong></p>';
 
             } else {
                 $output .= '<p>Sorry data feed unavailable</p>';
