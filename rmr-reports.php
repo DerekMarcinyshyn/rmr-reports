@@ -10,7 +10,7 @@ Plugin URI: https://github.com/DerekMarcinyshyn/rmr-reports
 Description: Revelstoke Mountain Resort Reports is a WordPress plugins displaying weather, snow, grooming and lift status updates.
 Author: Derek Marcinyshyn
 Author URI: http://derek.marcinyshyn.com
-Version: 1.0
+Version: 1.1
 License: GPLv2
 
 This program is free software; you can redistribute it and/or
@@ -32,7 +32,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 defined( 'ABSPATH' ) or die( "Cannot access pages directly." );
 
 // Plugin version
-define( 'RMR_REPORTS_VERSION', '1.0');
+define( 'RMR_REPORTS_VERSION', '1.1');
 
 // Plugin
 define( 'RMR_REPORTS_PLUGIN', __FILE__ );
@@ -67,10 +67,6 @@ include_once( RMR_REPORTS_LIB_PATH . '/vendor/updater/updater.php' );
 // ====================================
 
 global  $rmr_reports_app;
-
-// widgets class
-//use rmr_reports\Widgets;
-//$rmr_reports_widgets = \rmr_reports\Widgets::get_instance();
 
 // Main class app initialization in App::__construct()
 use rmr_reports\App;
